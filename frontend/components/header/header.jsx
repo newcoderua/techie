@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
+  Button,
   NavbarToggler,
   NavbarBrand,
   Nav,
@@ -11,17 +12,34 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter } from 'reactstrap';
+import Session from '../session/session_container';
 
-  export default class Example extends React.Component {
+  export default class Header extends React.Component {
     constructor(props) {
       super(props);
+      // debugger
+      let currentUserButton;
+      if (this.props.currentUser === null) {
+        currentUserButton = 'LogIn'
+      } else {
+        currentUserButton = 'LogOut';
+      }
+
+      this.state = {
+        isOpen: false,
+        currentUser: currentUserButton,
+        modal: false
+      };
 
       this.toggle = this.toggle.bind(this);
-      this.state = {
-        isOpen: false
-      };
+      this.toggleModal = this.toggleModal.bind(this);
     }
+
 
     toggle() {
       this.setState({
@@ -29,37 +47,42 @@ import {
       });
     }
 
+    toggleModal() {
+      this.setState({
+        modal: !this.state.modal
+      });
+    }
+
     render() {
       return (
-        <div>
+        <div className='header'>
           <Navbar color="faded" light expand="md">
-            <NavbarBrand href="/">reactstrap</NavbarBrand>
+            <NavbarBrand href="/">Techie</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/components/">Components</NavLink>
+                  <NavLink href="/gadgets/">
+                    <Button color="primary">
+                      My gadgets
+                    </Button>
+                  </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+                  <Button color="warning" onClick={this.toggleModal}>
+                    {this.state.currentUser}
+                  </Button>
+                  <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
+                    <ModalHeader toggle={this.toggleModal}></ModalHeader>
+                    <ModalBody>
+                      <Session />
+                    </ModalBody>
+                    <ModalFooter>
+                      <Button color="primary" onClick={this.toggleModal}>Do Something</Button>{' '}
+                      <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
+                    </ModalFooter>
+                  </Modal>
                 </NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    Options
-                  </DropdownToggle>
-                  <DropdownMenu >
-                    <DropdownItem>
-                      Option 1
-                    </DropdownItem>
-                    <DropdownItem>
-                      Option 2
-                    </DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>
-                      Reset
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
               </Nav>
             </Collapse>
           </Navbar>
