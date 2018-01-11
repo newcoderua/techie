@@ -23,6 +23,8 @@ import Session from '../session/session_container';
     constructor(props) {
       super(props);
       // debugger
+      //check how amazon search works/API
+
       let currentUserButton;
       if (this.props.currentUser === null) {
         currentUserButton = 'LogIn'
@@ -30,16 +32,34 @@ import Session from '../session/session_container';
         currentUserButton = 'LogOut';
       }
 
+      let name;
+      if (this.props.currentUser !== null) {
+        name = this.props.currentUser.username;
+      } else {
+        name = '';
+      }
       this.state = {
         isOpen: false,
-        currentUser: currentUserButton,
-        modal: false
+        currentUserButtonName: currentUserButton,
+        modal: false,
+        currentUser : name
       };
+      // debugger
 
       this.toggle = this.toggle.bind(this);
       this.toggleModal = this.toggleModal.bind(this);
+      this.handleLogout = this.handleLogout.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+      // debugger
+      let logoutStr = 'LogOut';
+      if (this.state.modal === true) {
+        this.setState({ currentUserButtonName : logoutStr })
+      }
+
+      // debugger
+    }
 
     toggle() {
       this.setState({
@@ -53,7 +73,37 @@ import Session from '../session/session_container';
       });
     }
 
+    handleLogout() {
+      this.props.logout();
+      this.setState({ currentUserButtonName : 'LogIn' })
+      // this.setState({ handledByLogOut : true })
+
+    }
+
     render() {
+      // debugger
+      // if (this.props.currentUser !== null) {
+      //   this.setState({ currentUser : this.props.currentUser.username })
+      // }
+      let loginLogoutButton = () => {
+        if (this.state.currentUserButtonName !== 'LogIn') {
+          return(
+            <div>
+              <Button color="warning" onClick={this.handleLogout}>
+                {this.state.currentUserButtonName}
+              </Button>{' '}
+              Hi, {this.state.currentUser}
+          </div>
+          )
+        } else {
+          return(
+            <Button color="warning" onClick={this.toggleModal}>
+              {this.state.currentUserButtonName}
+            </Button>
+          )
+        }
+      }
+
       return (
         <div className='header'>
           <Navbar color="faded" light expand="md">
@@ -69,18 +119,12 @@ import Session from '../session/session_container';
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <Button color="warning" onClick={this.toggleModal}>
-                    {this.state.currentUser}
-                  </Button>
+                  {loginLogoutButton()}
                   <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
                     <ModalHeader toggle={this.toggleModal}></ModalHeader>
                     <ModalBody>
-                      <Session />
+                      <Session closeModal={this.toggleModal} loginButton={this.state.currentUserButtonName} />
                     </ModalBody>
-                    <ModalFooter>
-                      <Button color="primary" onClick={this.toggleModal}>Do Something</Button>{' '}
-                      <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
-                    </ModalFooter>
                   </Modal>
                 </NavItem>
               </Nav>
@@ -90,3 +134,8 @@ import Session from '../session/session_container';
       );
     }
   }
+
+  // <ModalFooter>
+  //   <Button color="primary" onClick={this.toggleModal}>Submit</Button>{' '}
+  //   <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
+  // </ModalFooter>

@@ -21,12 +21,15 @@ export const signup = user => (
   })
 );
 
-export const logout = () => (
-  $.ajax({
-    method: 'DELETE',
-    url: '/api/session'
-  })
-);
+export const logout = () => {
+  // debugger
+  return (
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/session'
+    })
+  )
+};
 
 export const update = (user) => (
   $.ajax({
