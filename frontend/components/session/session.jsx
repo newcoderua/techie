@@ -19,6 +19,7 @@ class Session extends React.Component {
 
   componentDidMount() {
     this.props.clearErrors();
+    // debugger
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,7 +28,6 @@ class Session extends React.Component {
       // debugger
       this.props.closeModal();
       // this.props.history.push(`/`);
-
     }
   }
 
@@ -43,12 +43,16 @@ class Session extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.processForm({ user });
+    debugger
+    this.props.updateName(user.username);
   }
 
   loginGuest(e) {
     e.preventDefault();
     const guest = { user: {username: "Albert_Einstein", email: "Albi@yahoo.com", password :"654321"}}
     this.props.login(guest);
+    // debugger
+    this.props.updateName(guest.user.username);
   }
 
   // I need to catch errors somehow

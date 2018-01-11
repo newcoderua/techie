@@ -49,6 +49,7 @@ import Session from '../session/session_container';
       this.toggle = this.toggle.bind(this);
       this.toggleModal = this.toggleModal.bind(this);
       this.handleLogout = this.handleLogout.bind(this);
+      this.updateName = this.updateName.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -56,10 +57,8 @@ import Session from '../session/session_container';
       let logoutStr = 'LogOut';
       if (this.state.modal === true) {
         this.setState({ currentUserButtonName : logoutStr })
+        }
       }
-
-      // debugger
-    }
 
     toggle() {
       this.setState({
@@ -73,18 +72,16 @@ import Session from '../session/session_container';
       });
     }
 
+    updateName(param) {
+      this.setState({ currentUser : param })
+    }
+
     handleLogout() {
       this.props.logout();
       this.setState({ currentUserButtonName : 'LogIn' })
-      // this.setState({ handledByLogOut : true })
-
     }
 
     render() {
-      // debugger
-      // if (this.props.currentUser !== null) {
-      //   this.setState({ currentUser : this.props.currentUser.username })
-      // }
       let loginLogoutButton = () => {
         if (this.state.currentUserButtonName !== 'LogIn') {
           return(
@@ -123,7 +120,7 @@ import Session from '../session/session_container';
                   <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
                     <ModalHeader toggle={this.toggleModal}></ModalHeader>
                     <ModalBody>
-                      <Session closeModal={this.toggleModal} loginButton={this.state.currentUserButtonName} />
+                      <Session closeModal={this.toggleModal} loginButton={this.state.currentUserButtonName} updateName={this.updateName}/>
                     </ModalBody>
                   </Modal>
                 </NavItem>
