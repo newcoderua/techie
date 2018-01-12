@@ -6,6 +6,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import MainPage from './mainpage/mainpage_container';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route exact path="/login" component={Session} />
           <Route path="/signup" component={Session} />
         </Switch>
+        <MainPage />
       </div>
     </div>
   )

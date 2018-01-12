@@ -109,13 +109,6 @@ import Session from '../session/session_container';
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/gadgets/">
-                    <Button color="primary">
-                      My gadgets
-                    </Button>
-                  </NavLink>
-                </NavItem>
-                <NavItem>
                   {loginLogoutButton()}
                   <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
                     <ModalHeader toggle={this.toggleModal}></ModalHeader>

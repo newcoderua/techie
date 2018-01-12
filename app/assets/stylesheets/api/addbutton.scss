@@ -1,0 +1,64 @@
+.add-button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  // color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+  width: 85%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.add-button:hover span {
+  font-size: 18px;
+}
+
+.add-button span {
+  cursor: pointer;
+  // display: inline-block;
+  // position: relative;
+  transition: 0.5s;
+}
+//
+// .add-button span:after {
+//   content: '\00bb';
+//   position: absolute;
+//   opacity: 0;
+//   top: 0;
+//   right: -20px;
+//   transition: 0.5s;
+// }
+//
+// .add-button:hover span {
+//   padding-right: 25px;
+// }
+//
+// .add-button:hover span:after {
+//   opacity: 1;
+//   right: 0;
+// }
+//
+// .add-button.btn.btn-primary {
+//   font-size: 20px;
+// }
+
+
+/////////////////////other buttons below
+.other-buttons {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 20px;
+  width: 85%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
