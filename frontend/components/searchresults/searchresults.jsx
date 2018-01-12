@@ -14,7 +14,7 @@ export default class MainPage extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
     // if (this.props.results.length === 0) {
     //   return(
     //     <div>
@@ -26,7 +26,11 @@ export default class MainPage extends React.Component {
         <Container>
           <Row>
             <Col>
-              hey
+              { Object.keys(this.props.results).map((id) => {
+                <SearchResultsItem
+
+                  />
+              })}
             </Col>
           </Row>
         </Container>
@@ -34,9 +38,3 @@ export default class MainPage extends React.Component {
     }
   // }
 }
-
-// { this.state.results.map((id) => {
-//   <SearchResultsItem
-//
-//     />
-// })}

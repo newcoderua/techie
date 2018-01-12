@@ -27,9 +27,7 @@ export default class MainPage extends React.Component {
     var amazon = require('amazon-product-api');
 
     var client = amazon.createClient({
-      awsId: 'AKIAI2XY4FZGO35KORAA',
-      awsSecret: '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',
-      awsTag: 'vladstadnyk-20'
+      
     });
     var self = this;
     // debugger
