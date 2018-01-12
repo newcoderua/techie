@@ -1,8 +1,13 @@
 .header {
   border: 1px solid grey;
+  
 }
 
 .ml-auto.navbar-nav {
   display: flex;
   align-items: center;
+}
+
+.navbar.navbar-expand-md.navbar-light.bg-faded {
+  // position: fixed;
 }

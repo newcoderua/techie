@@ -2,6 +2,7 @@
   "name": "techie",
   "private": true,
   "dependencies": {
+    "amazon-product-api": "^0.4.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",

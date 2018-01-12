@@ -1,0 +1,26 @@
+.leftNav-input {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+}
+
+.input-area {
+  display: flex;
+  justify-content: center;
+}
+
+#collapse {
+  float: left;
+  margin-top: 20px;
+}
+
+#collapse-results {
+  float: left;
+  margin-top: 20px;
+  width: 32rem;
+}
+
+#submit {
+  float: right;
+  margin-top: 5px;
+}
