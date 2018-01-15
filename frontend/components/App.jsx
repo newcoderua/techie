@@ -1,12 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Session from './session/session_container';
-import Header from './header/header_container';
-import {
-  Switch,
-  Route
-} from 'react-router-dom';
 import MainPage from './mainpage/mainpage_container';
+import Header from './header/header_container';
 
 
 const App = () => {
@@ -19,13 +14,7 @@ const App = () => {
           </div>
         </header>
       </div>
-      <div className='main-page'>
-        <Switch>
-          <Route exact path="/login" component={Session} />
-          <Route path="/signup" component={Session} />
-        </Switch>
-        <MainPage />
-      </div>
+      <MainPage />
     </div>
   )
 }
