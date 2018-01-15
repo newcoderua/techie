@@ -1,23 +1,43 @@
 .main-page {
-  height: 600px;
-  background-image: url("https://cdn0.vox-cdn.com/uploads/chorus_asset/file/6384159/final_cb_0086.0.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  // height: 600px;
+  // background-image: url("https://cdn0.vox-cdn.com/uploads/chorus_asset/file/6384159/final_cb_0086.0.jpg");
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 
 #buttonSubmit {
   float: right;
 }
 
+svg {
+  fill: white;
+}
+
 .leftNav {
-  background-color: white;
-  // width: 30%;
-  width: 200px;
-  margin-top: 20px;
-  margin-left: 5px;
-  padding: 7px;
-  float: left;
-  border-radius: 10px;
-  max-height: 280px;
+  // // width: 30%;
+  // width: 200px;
+  // margin-top: 20px;
+  // margin-left: 5px;
+  // padding: 7px;
+  // float: left;
+  // border-radius: 10px;
+  // max-height: 280px;
+  // border: 1px solid black;
+  position: fixed;
+  height: 100%;
+  display: flex;
+  color: white;
+}
+
+.lefty-nav-bar {
+  border-top: 1px solid white;
+  padding: 10px;
+  background-color: #9c9cc2;
+}
+
+.righty-nav-bar {
+  // border: 1px solid white;
+  padding: 10px;
+  background-color: #4c4c6e;
 }

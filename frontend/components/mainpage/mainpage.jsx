@@ -3,6 +3,13 @@ import { Nav, NavItem, NavLink, Button, Link,
           Collapse, CardBody, Card, Input, UncontrolledTooltip,
          } from 'reactstrap';
 import SearchResults from '../searchresults/searchresults_container';
+import SearchInput, {createFilter} from 'react-search-input'
+import FaEnvelopeO from 'react-icons/lib/fa/envelope-o';
+import FaEnvelopeSquare from 'react-icons/lib/fa/envelope-square';
+import FaCameraRetro from 'react-icons/lib/fa/camera-retro';
+import Icon from 'react-icons-kit';
+import { envelop } from 'react-icons-kit/icomoon/envelop';
+
 
 export default class MainPage extends React.Component {
   constructor(props) {
@@ -27,7 +34,10 @@ export default class MainPage extends React.Component {
     var amazon = require('amazon-product-api');
 
     var client = amazon.createClient({
-      
+      awsId: 'AKIAI2XY4FZGO35KORAA',
+      awsSecret: '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',
+      awsTag: 'vladstadnyk-20'
+
     });
     var self = this;
     // debugger
@@ -62,48 +72,17 @@ export default class MainPage extends React.Component {
   render() {
     // debugger
     return (
-      <div className="leftNav-input">
-        <div className='leftNav'>
-          <p>Your Account</p>
-          <Nav vertical>
-            <NavItem>
-              <Button color='primary' onClick={this.toggle} className='add-button'><span>Add gadget</span></Button>
-
-            </NavItem>
-            <NavItem>
-              <Button className="other-buttons" color='warning'><span>My gadgets</span></Button>
-            </NavItem>
-            <NavItem>
-              <Button className="other-buttons" color='info'>
-                Tech News
-              </Button>
-            </NavItem>
-          </Nav>
-          <hr />
-          <Button className="other-buttons" color='secondary'>
-            Contact Us
-          </Button>
+      <div className="leftNav">
+        <div className="lefty-nav-bar">
+          <div><FaEnvelopeO /></div>
+          <div><FaEnvelopeO /></div>
+          <div><FaEnvelopeO /></div><br /><br />
+          <div><FaCameraRetro /></div>
+          <div><FaEnvelopeO /></div>
+          <div><FaEnvelopeO /></div>
         </div>
-        <div className='input-area'>
-          <Collapse id='collapse' isOpen={this.state.collapse}>
-            <Card>
-              <CardBody>
-                <Input placeholder='descripe your gadget' />
-                <a href="#" id="UncontrolledTooltipExample">Example</a>
-                  <UncontrolledTooltip placement="right" target="UncontrolledTooltipExample">
-                    iphone 6s grey refurbished 128gb
-                  </UncontrolledTooltip>{'   '}
-                  <Button color='primary' id='submit' onClick={this.toggleSearchResults} >Submit</Button>
-              </CardBody>
-            </Card>
-          </Collapse>
-          <Collapse id='collapse-results' isOpen={this.state.searchResults}>
-            <Card>
-              <CardBody>
-                <SearchResults results={this.state.results} />
-              </CardBody>
-            </Card>
-          </Collapse>
+        <div className="righty-nav-bar">
+          <FaCameraRetro />My Gadgets
         </div>
       </div>
     );

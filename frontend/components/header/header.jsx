@@ -18,6 +18,9 @@ import {
   ModalBody,
   ModalFooter } from 'reactstrap';
 import Session from '../session/session_container';
+import SearchInput from 'react-search-input'
+import FaSearch from 'react-icons/lib/fa/search';
+import FaGamepad from 'react-icons/lib/fa/gamepad';
 
   export default class Header extends React.Component {
     constructor(props) {
@@ -103,23 +106,26 @@ import Session from '../session/session_container';
 
       return (
         <div className='header'>
-          <Navbar color="faded" light expand="md">
+          <div>
+            <FaGamepad />
             <NavbarBrand href="/">Techie</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                  {loginLogoutButton()}
-                  <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
+          </div>
+          <div>
+            <div className="header-right-side">
+              <div><FaSearch /></div>
+              <div><SearchInput className="search-input" /></div>
+              <div>
+                {loginLogoutButton()}
+                <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
                     <ModalHeader toggle={this.toggleModal}></ModalHeader>
                     <ModalBody>
                       <Session closeModal={this.toggleModal} loginButton={this.state.currentUserButtonName} updateName={this.updateName}/>
                     </ModalBody>
                   </Modal>
-                </NavItem>
-              </Nav>
-            </Collapse>
-          </Navbar>
+              </div>
+            </div>
+          </div>
+
         </div>
       );
     }

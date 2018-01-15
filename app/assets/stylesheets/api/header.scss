@@ -1,6 +1,18 @@
 .header {
-  border: 1px solid grey;
-  
+  display: flex;
+  justify-content: space-between;
+  background-color: #9c9cc2;
+  color: white;
+  padding: 7px;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.header-right-side {
+  display: flex;
+  justify-content: center;
 }
 
 .ml-auto.navbar-nav {
@@ -10,4 +22,8 @@
 
 .navbar.navbar-expand-md.navbar-light.bg-faded {
   // position: fixed;
+}
+
+.collapse.navbar-collapse {
+  float: right;
 }
