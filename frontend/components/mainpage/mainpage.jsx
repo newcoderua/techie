@@ -38,14 +38,19 @@ class MainPage extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.location.pathname === '/gadgets') {
+      document.getElementById("gadgets-icon").style.background = "#4c4c6e";
+    }
     document.getElementById("gadgets-icon").addEventListener('click', () => {
       document.getElementById("gadgets-icon").style.background = "#4c4c6e";
     });
   }
 
-  // componentWillUnmount() {
-  //     document.removeEventListener('click', this.handleClick);
-  // }
+  componentWillUnmount() {
+    document.getElementById("gadgets-icon").addEventListener('click', () => {
+      document.getElementById("gadgets-icon").style.background = "#4c4c6e";
+    });
+  }
 
 
   goToGadgets() {
@@ -56,7 +61,9 @@ class MainPage extends React.Component {
     var amazon = require('amazon-product-api');
 
     var client = amazon.createClient({
-      
+      awsId: 'AKIAI2XY4FZGO35KORAA',
+      awsSecret: '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',
+      awsTag: 'vladstadnyk-20'
 
     });
     var self = this;

@@ -12,6 +12,12 @@
 
 svg {
   fill: white;
+  width: 3rem;
+  padding: 0;
+}
+
+#my-gadgets-name {
+  font-size: 12px;
 }
 
 .leftNav {
@@ -32,7 +38,7 @@ svg {
 
 .lefty-nav-bar {
   border-top: 1px solid white;
-  padding: 10px;
+  // padding: 10px;
   background-color: #9c9cc2;
 }
 
@@ -43,6 +49,31 @@ svg {
   width: 9rem;
 }
 
-svg {
-  padding: 0px;
+
+.my-gadgets-nav > #nav-icon-gadger {
+  width: 1rem;
+}
+
+#addnew-button {
+  background-color: #4c4c6e;
+  border: 0px;
+  color: white;
+  font-size: 13px;
+}
+
+#addnew-button:hover {
+  background-color: #4c4c6e;
+  border: 0px;
+  color: #dbaa16;
+  font-size: 15px;
+  transition: 0.5s;
+}
+
+.my-gadgets-nav {
+  text-align: center;
+}
+
+.categories {
+  text-align: start;
+  padding: 0.4rem; 
 }
