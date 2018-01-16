@@ -17,7 +17,7 @@ import { Route,
 } from 'react-router-dom';
 // import createHistory from 'history/createBrowserHistory';
 import { Provider } from 'react-redux';
-
+import AddGadget from '../mygadgets/add_gadget_container';
 
 // const history = createHistory();
 
@@ -104,11 +104,14 @@ class MainPage extends React.Component {
             <div id="cart-icon"><TiShoppingCart /></div>
             <div id="news-icon"><FaNewspaperO /></div>
           </div>
-            <div className="righty-nav-bar">
-              <Switch>
-                <Route path="/gadgets" component={MyGadgets} />
-              </Switch>
-            </div>
+          <div className="righty-nav-bar">
+            <Switch>
+              <Route path="/gadgets" component={MyGadgets} />
+            </Switch>
+          </div>
+        </div>
+        <div className="rightNav" id="rightNavId">
+          <AddGadget />
         </div>
       </div>
     </Router>

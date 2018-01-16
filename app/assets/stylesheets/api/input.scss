@@ -1,26 +1,21 @@
-.leftNav-input {
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
+.search-input-elems {
+  width: 100%;
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-.input-area {
-  display: flex;
-  justify-content: center;
+.dropdown-toggle.btn.btn-secondary {
+  height: 1.7rem;
+  font-size: 11px;
 }
 
-#collapse {
-  float: left;
-  margin-top: 20px;
+.input-group {
+  height: 1.7rem;
 }
 
-#collapse-results {
-  float: left;
-  margin-top: 20px;
-  width: 32rem;
-}
-
-#submit {
-  float: right;
-  margin-top: 5px;
+.search-button-input {
+  height: 1.7rem;
+  width: 2rem;
+  background-color: #ffc107;
 }

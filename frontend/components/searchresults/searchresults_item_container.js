@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { logout } from '../../actions/session_actions';
 // import { updateFilter } from '../../actions/filter_actions';
-import SearchResults from './searchresults';
+import SearchResultsItem from './searchresults_item';
 
 const mapStateToProps = ({session}, ownProps) => {
   // debugger
@@ -18,4 +18,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchResults);
+)(SearchResultsItem);
