@@ -2,6 +2,8 @@
   width: 100%;
   border: 1px solid grey;
   height: 100px;
+  display: flex;
+  justify-content: center;
 }
 .left-search-result {
   width: 20%;
@@ -14,4 +16,46 @@
   border: 1px solid grey;
   height: 100px;
 
+}
+
+.buttons-search-results {
+  font-size: 0.5rem;
+}
+
+.right-search-result {
+  display: flex;
+  justify-content: center;
+}
+
+.lefty-right-search-result {
+  display: flex;
+  justify-content: center;
+  width: 22%;
+
+}
+
+.righty-right-search-result {
+  width: 78%;
+  border-left: 1px solid grey;
+}
+
+.search-result-title {
+  border: 1px solid red;
+  height: 20%;
+}
+.search-result-maininfo {
+  border: 1px solid yellow;
+  height: 80%;
+}
+
+.categories-buttons {
+  font-size: 8px;
+  border: 0px;
+  background-color: inherit;
+  color: white;
+  padding: 0px;
+}
+
+.div-categories-buttons {
+  height: 17px;
 }

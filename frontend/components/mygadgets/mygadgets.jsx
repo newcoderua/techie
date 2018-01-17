@@ -27,21 +27,29 @@ export default class MyGadgets extends React.Component {
           </button><br /><br/>
           <span>
             Categories
-          </span><br/><br/>
+          </span><br/>
 
           <div className="categories">
-            <div>
-              electronics
-            </div>
-            <div>
-              auto
-            </div>
-            <div>
-              beauty
-            </div>
-            <div>
-              Car Electronics
-            </div>
+            <div className="div-categories-buttons"><button className="categories-buttons">TV & Video</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Home Audio & Theater</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Camera, Photo & Video</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Cell Phones & Accessories</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Headphones</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Video Games</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Bluetooth & Wireless Speakers</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Car Electronics</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Musical Instruments</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Wearable Technology</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Electronics Showcase</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Computers & Tablets</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Monitors</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Accessories</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Networking</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Drives & Storage</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Computer Parts & Components</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Software</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Printers & Ink</button></div>
+            <div className="div-categories-buttons"><button className="categories-buttons">Office & School Supplies</button></div>
           </div>
         </div>
       )

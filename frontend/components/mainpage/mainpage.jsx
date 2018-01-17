@@ -26,8 +26,6 @@ class MainPage extends React.Component {
     super(props);
 
     this.goToGadgets = this.goToGadgets.bind(this);
-    this.getAmazonGoods = this.getAmazonGoods.bind(this);
-    this.toggleSearchResults = this.toggleSearchResults.bind(this);
     this.state = {
       collapse : false,
       searchResults : false,
@@ -57,29 +55,7 @@ class MainPage extends React.Component {
     this.props.history.push('/my_gadgets');
   }
 
-  getAmazonGoods() {
-    var amazon = require('amazon-product-api');
 
-    var client = amazon.createClient({
-      awsId: 'AKIAI2XY4FZGO35KORAA',
-      awsSecret: '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',
-      awsTag: 'vladstadnyk-20'
-
-    });
-    var self = this;
-    client.itemSearch({
-      searchIndex: 'Electronics',
-      Keywords: 'iphone 6s',
-      responseGroup: 'ItemAttributes,Offers,Images'
-    }, function(err, results, response) {
-      if (err) {
-      } else {
-        self.setState({
-          results : results
-        })
-      }
-    });
-  }
 
   toggleSearchResults() {
     this.setState({ searchResults : !this.state.searchResults })
