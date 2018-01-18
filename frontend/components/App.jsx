@@ -6,8 +6,8 @@ import Header from './header/header_container';
 
 const App = () => {
   return(
-    <div>
-      <div>
+    <div className="major-div">
+      <div className="major-header">
         <header  className="header-class">
           <div>
             <Header />

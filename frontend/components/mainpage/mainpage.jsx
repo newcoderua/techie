@@ -38,9 +38,11 @@ class MainPage extends React.Component {
   componentDidMount() {
     if (this.props.location.pathname === '/gadgets') {
       document.getElementById("gadgets-icon").style.background = "#4c4c6e";
+      document.getElementById("svg-gadgets-icon").style.fill = "#dfaa0a";
     }
     document.getElementById("gadgets-icon").addEventListener('click', () => {
       document.getElementById("gadgets-icon").style.background = "#4c4c6e";
+      document.getElementById("svg-gadgets-icon").style.fill = "#dfaa0a";
     });
   }
 
@@ -74,7 +76,7 @@ class MainPage extends React.Component {
             <div id="settings-icon"><TiCogOutline /></div><br /><br />
             <div id="gadgets-icon">
               <Link to='/gadgets'>
-                <FaCameraRetro />
+                <FaCameraRetro id='svg-gadgets-icon'/>
               </Link>
               </div>
             <div id="cart-icon"><TiShoppingCart /></div>

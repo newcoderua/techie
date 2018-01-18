@@ -10,12 +10,31 @@
   font-size: 11px;
 }
 
+.search-input {
+  margin-right: 10px;
+}
+
+.search-input > input {
+  background-color: #b7b7d5;
+  border: 1px solid #fefefd;
+  // border-left: 0px;
+  border-radius: 2px;
+  color: white;
+}
+
 .input-group {
   height: 1.7rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .search-button-input {
   height: 1.7rem;
   width: 2rem;
   background-color: #ffc107;
+}
+
+#input-for-search {
+  width: 18rem;
 }

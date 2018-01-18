@@ -1,3 +1,15 @@
+.major-div {
+  height: 500px;
+}
+
+.major-header {
+  height: 9%;
+}
+
+.header {
+  max-height: 50px;
+}
+
 .main-page {
   // height: 600px;
   // background-image: url("https://cdn0.vox-cdn.com/uploads/chorus_asset/file/6384159/final_cb_0086.0.jpg");
@@ -6,7 +18,7 @@
   // background-size: cover;
   // display: flex;
   // justify-content: space-around;
-  padding-top: 3.3rem;
+  // padding-top: 3.3rem;
 }
 
 .rightNav {
@@ -52,7 +64,7 @@ svg {
 
 .righty-nav-bar {
   // border: 1px solid white;
-  padding: 8px;
+  padding-top: 8px;
   background-color: #4c4c6e;
   width: 9.4rem;
 }
@@ -67,6 +79,7 @@ svg {
   border: 0px;
   color: white;
   font-size: 13px;
+  width: 100%;
 }
 
 #addnew-button:hover {
@@ -85,5 +98,5 @@ svg {
   text-align: start;
   padding: 0.4rem;
   overflow: auto;
-  height: 68vh;
+  height: 50vh;
 }

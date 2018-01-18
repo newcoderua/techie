@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Button, Form, Col, FormGroup, Label, Input, FormText } from 'reactstrap';
+import FacebookLogin from 'react-facebook-login';
 
 class Session extends React.Component {
   constructor(props){
@@ -15,19 +16,16 @@ class Session extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginGuest = this.loginGuest.bind(this);
+    this.responseFacebook = this.responseFacebook.bind(this);
   }
 
   componentDidMount() {
     this.props.clearErrors();
-    // debugger
   }
 
   componentWillReceiveProps(nextProps) {
-    // debugger
     if (nextProps.loggedIn) {
-      // debugger
       this.props.closeModal();
-      // this.props.history.push(`/`);
     }
   }
 
@@ -43,7 +41,6 @@ class Session extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.processForm({ user });
-    debugger
     this.props.updateName(user.username);
   }
 
@@ -51,11 +48,15 @@ class Session extends React.Component {
     e.preventDefault();
     const guest = { user: {username: "Albert_Einstein", email: "Albi@yahoo.com", password :"654321"}}
     this.props.login(guest);
-    // debugger
     this.props.updateName(guest.user.username);
   }
 
   // I need to catch errors somehow
+
+  responseFacebook(response) {
+    console.log(response);
+
+  }
 
   render() {
     // debugger
@@ -79,11 +80,17 @@ class Session extends React.Component {
             <Input value={this.state.password} onChange={this.update('password')} name="password" id="password-session" placeholder="2dfnkTR92c" />
           </Col>
         </FormGroup>
-        <Button color="success" onClick={this.loginGuest} >Login as Guest</Button>{' '}
-        <Button id='buttonSubmit' onClick={this.handleSubmit} color='primary'>Submit</Button>
+        <FacebookLogin
+          appId="172743610152075"
+          autoLoad={true}
+          fields="name,email,picture"
+          onClick={this.componentClicked}
+          callback={this.responseFacebook} />
+        <Button id='buttonSubmit' onClick={this.handleSubmit} color='success'>Submit</Button>
       </Form>
     )
   }
 }
 
+// <Button color="primary" onClick={this.loginGuest} >Continue with Facebook</Button>{' '}
 export default withRouter(Session);

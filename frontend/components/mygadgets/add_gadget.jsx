@@ -45,7 +45,9 @@ export default class AddGadget extends React.Component {
     var amazon = require('amazon-product-api');
 
     var client = amazon.createClient({
-      
+      awsId: 'AKIAI2XY4FZGO35KORAA',
+      awsSecret: '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',
+      awsTag: 'vladstadnyk-20'
     });
     var self = this;
     client.itemSearch({
@@ -72,21 +74,12 @@ export default class AddGadget extends React.Component {
         <div className="search-input-elems">
           <InputGroup>
             <InputGroupAddon>
-              <UncontrolledDropdown>
-                  <DropdownToggle caret>
-                    All
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem>Action</DropdownItem>
-                    <DropdownItem>Action 2</DropdownItem>
-                    <DropdownItem>Action 3</DropdownItem>
-                    <DropdownItem>Action 4</DropdownItem>
-                    <DropdownItem>Action 5</DropdownItem>
-                    <DropdownItem>Action 6</DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
             </InputGroupAddon>
-            <Input id="input-for-search" placeholder="ex. iphone 6s gold" onChange={this.handleChangeInput} />
+            <input
+              id="input-for-search"
+              placeholder="ex. iphone 6s gold"
+              onChange={this.handleChangeInput}
+              />
             <InputGroupAddon>
               <button
                 className="search-button-input"
@@ -126,10 +119,6 @@ export default class AddGadget extends React.Component {
                     } else {
                       price = self.state.results[id].ItemAttributes['0'].ListPrice['0'].FormattedPrice['0'];
                     }
-
-
-
-
                     // debugger
                     return(
                       <SearchResultsItem
@@ -152,21 +141,8 @@ export default class AddGadget extends React.Component {
         <div className="search-input-elems">
           <InputGroup>
             <InputGroupAddon>
-              <UncontrolledDropdown>
-                  <DropdownToggle caret>
-                    All
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem>Action</DropdownItem>
-                    <DropdownItem>Action 2</DropdownItem>
-                    <DropdownItem>Action 3</DropdownItem>
-                    <DropdownItem>Action 4</DropdownItem>
-                    <DropdownItem>Action 5</DropdownItem>
-                    <DropdownItem>Action 6</DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
             </InputGroupAddon>
-            <Input id="input-for-search" placeholder="ex. iphone 6s gold" onChange={this.handleChangeInput} />
+            <input id="input-for-search" placeholder="ex. iphone 6s gold" onChange={this.handleChangeInput} />
             <InputGroupAddon>
               <button
                 className="search-button-input"

@@ -88,18 +88,18 @@ import FaGamepad from 'react-icons/lib/fa/gamepad';
       let loginLogoutButton = () => {
         if (this.state.currentUserButtonName !== 'LogIn') {
           return(
-            <div>
-              <Button color="warning" onClick={this.handleLogout}>
+            <div className="nav-for-button">
+              <button className="login-button" onClick={this.handleLogout}>
                 {this.state.currentUserButtonName}
-              </Button>{' '}
-              Hi, {this.state.currentUser}
+              </button>{' '}
+              {this.state.currentUser}
           </div>
           )
         } else {
           return(
-            <Button color="warning" onClick={this.toggleModal}>
+            <button className="login-button" onClick={this.toggleModal}>
               {this.state.currentUserButtonName}
-            </Button>
+            </button>
           )
         }
       }
@@ -108,7 +108,7 @@ import FaGamepad from 'react-icons/lib/fa/gamepad';
         <div className='header'>
           <div>
             <FaGamepad />
-            <NavbarBrand href="/">Techie</NavbarBrand>
+            <NavbarBrand href="/">techie</NavbarBrand>
           </div>
           <div>
             <div className="header-right-side">

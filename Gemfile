@@ -32,6 +32,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'jquery-rails'
 gem 'annotate'
+gem 'omniauth-facebook'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

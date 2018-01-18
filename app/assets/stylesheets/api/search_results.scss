@@ -1,3 +1,7 @@
+.search-results {
+  display: block;
+}
+
 .search-result-items {
   width: 100%;
   border: 1px solid grey;
@@ -58,4 +62,10 @@
 
 .div-categories-buttons {
   height: 17px;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: text-indent 0.5s 0.5s ease;
+  text-indent: -100%;
+  opacity: 1;
 }
