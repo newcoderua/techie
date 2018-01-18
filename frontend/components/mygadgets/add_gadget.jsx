@@ -43,11 +43,14 @@ export default class AddGadget extends React.Component {
 
   getAmazonGoods() {
     var amazon = require('amazon-product-api');
-
+    var myId = amazonAPI.awsId;
+    var mySecret = amazonAPI.awsSecret;
+    var myTag  = amazonAPI.awsTag;
+    // debugger
     var client = amazon.createClient({
-      awsId: 'AKIAI2XY4FZGO35KORAA',
-      awsSecret: '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',
-      awsTag: 'vladstadnyk-20'
+      awsId: myId,
+      awsSecret: mySecret,
+      awsTag: myTag
     });
     var self = this;
     client.itemSearch({
@@ -88,7 +91,7 @@ export default class AddGadget extends React.Component {
           </InputGroup>
           <div className="search_results">
 
-                  { Object.keys(this.state.results).map((el, id) => {
+                  { Object.keys(self.state.results).map((el, id) => {
                     // debugger
                     var img;
                     var brand;

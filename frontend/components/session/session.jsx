@@ -17,6 +17,7 @@ class Session extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginGuest = this.loginGuest.bind(this);
     this.responseFacebook = this.responseFacebook.bind(this);
+    this.FBlogout = this.FBlogout.bind(this);
   }
 
   componentDidMount() {
@@ -55,11 +56,28 @@ class Session extends React.Component {
 
   responseFacebook(response) {
     console.log(response);
+  }
 
+  FBlogout() {
+    var mykey = facebook.api_key;
+
+    FB.init({
+      appId            : mykey,
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.10'
+    });
+
+    FB.logout(function(response) {
+      // user is now logged out
+      // debugger
+      console.log(response);
+    });
   }
 
   render() {
     // debugger
+    var mykey = facebook.api_key;
     return(
       <Form>
         <FormGroup row>
@@ -80,8 +98,9 @@ class Session extends React.Component {
             <Input value={this.state.password} onChange={this.update('password')} name="password" id="password-session" placeholder="2dfnkTR92c" />
           </Col>
         </FormGroup>
+        <button onClick={this.FBlogout}>LOGOUT FB</button>
         <FacebookLogin
-          appId="172743610152075"
+          appId={mykey}
           autoLoad={true}
           fields="name,email,picture"
           onClick={this.componentClicked}
