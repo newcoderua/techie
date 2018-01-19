@@ -2,7 +2,10 @@ import React from 'react';
 import { Container, Row, Col,
   Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
-
+import MdInfoOutline from 'react-icons/lib/md/info-outline';
+import FaLineChart from 'react-icons/lib/fa/line-chart';
+import FaCartPlus from 'react-icons/lib/fa/cart-plus';
+import FaPlusCircle from 'react-icons/lib/fa/plus-circle';
 export default class SearchResultsItem extends React.Component {
   constructor(props) {
     super(props);
@@ -13,41 +16,43 @@ export default class SearchResultsItem extends React.Component {
     // debugger
     return(
       <div className="search-result-items">
-        <div className="left-search-result">
-          <div>
-            <button className="buttons-search-results">
-              + Add to My Gadgets
+        <div className="search-result-leftside">
+          <div className="search-nav-icons">
+            <button>
+              <MdInfoOutline />
             </button>
           </div>
-          <div>
-            <button className="buttons-search-results">
-              More info
+          <div className="search-nav-icons">
+            <button>
+              <FaLineChart />
             </button>
           </div>
-          <div>
-            <button className="buttons-search-results">
-              Price Review
+          <div className="search-nav-icons">
+            <button>
+              <FaCartPlus />
             </button>
           </div>
-          <div>
-            <button className="buttons-search-results">
-              Wish to buy
+          <div className="search-nav-icons">
+            <button>
+              <FaPlusCircle id='add-button-green'/>
             </button>
           </div>
+
         </div>
-        <div className="right-search-result">
-          <div className="lefty-right-search-result">
+        <div className="major-div-image-class">
+          <div className="div-image-class">
             <img src={this.props.img} />
           </div>
-          <div className="righty-right-search-result">
-            <div className="search-result-title">
-              { this.props.title } { this.props.price }
+          <div className="major-div-info-class">
+            <div className="major-div-info-class-header">
+              { this.props.title }
             </div>
-            <div className="search-result-maininfo">
-
+            <div className="company-name">
+              by {this.props.companyName}
             </div>
           </div>
         </div>
+
       </div>
     )
   }

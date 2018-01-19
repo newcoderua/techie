@@ -4,21 +4,21 @@
 
 .search-result-items {
   width: 100%;
-  border: 1px solid grey;
-  height: 100px;
+  // border: 1px solid grey;
+  height: 186px;
   display: flex;
   justify-content: center;
 }
 .left-search-result {
   width: 20%;
   border: 1px solid grey;
-  height: 100px;
+  height: 200px;
 
 }
 .right-search-result {
-  width: 80%;
-  border: 1px solid grey;
-  height: 100px;
+  // width: 80%;
+  border: 1px solid blue;
+  height: 186px;
 
 }
 
@@ -35,7 +35,10 @@
   display: flex;
   justify-content: center;
   width: 22%;
+}
 
+.lefty-right-search-result > img {
+  width: 65%;
 }
 
 .righty-right-search-result {
@@ -64,8 +67,67 @@
   height: 17px;
 }
 
+.div-image-class {
+  width: 186px;
+  height: 100%;
+  text-align: center;
+  // border: 1px solid #aca7a7;
+  margin: 2px;
+}
+.major-div-image-class {
+  width: 100%;
+  box-shadow: 0px 0px 3px #9e9494;
+  margin: 5px;
+  border-radius: 3px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-result-leftside {
+  box-shadow: 0px 0px 3px #9e9494;
+  margin: 5px;
+  border-radius: 3px;
+  padding: 5px;
+}
+
 [placeholder]:focus::-webkit-input-placeholder {
   transition: text-indent 0.5s 0.5s ease;
   text-indent: -100%;
   opacity: 1;
+}
+
+.search-input-elements {
+  background-color: #fafafa;
+}
+
+.search-nav-icons > button{
+  font-size: 28px;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+.search-nav-icons > button > svg {
+  fill : #e3aa08;
+}
+
+#add-button-green{
+  fill : #17c363;
+}
+
+.major-div-info-class-header {
+  white-space: nowrap;
+text-overflow: ellipsis;
+width: 232px;
+/* height: 50px; */
+display: block;
+overflow: hidden;
+color: blue;
+font-size: 12px;
+}
+
+.company-name {
+  font-size: 10px;
+  color: #766e6e;
 }

@@ -99,10 +99,10 @@ export default class AddGadget extends React.Component {
                     var price;
                     var feature;
 
-                    if (self.state.results[id].SmallImage === undefined) {
-                      img = self.state.results[id].ImageSets['0'].ImageSet['0'].SmallImage['0'].URL['0'];
+                    if (self.state.results[id].MediumImage === undefined) {
+                      img = self.state.results[id].ImageSets['0'].ImageSet['0'].MediumImage['0'].URL['0'];
                     } else {
-                      img = self.state.results[id].SmallImage['0'].URL['0']
+                      img = self.state.results[id].MediumImage['0'].URL['0']
                     }
 
                     if (self.state.results[id].ItemAttributes['0'].Brand === undefined) {
@@ -135,7 +135,6 @@ export default class AddGadget extends React.Component {
                         />
                     )
                   })}
-
           </div>
         </div>
       )
