@@ -11,13 +11,17 @@ class Session extends React.Component {
       username: '',
       password: '',
       email: "",
-      loginButton : this.props.loginButton
+      loginButton : this.props.loginButton,
+      signup : 'Sign Up',
+      login : 'Login',
+      loginText : 'If you already have an account',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.loginGuest = this.loginGuest.bind(this);
+    // this.loginGuest = this.loginGuest.bind(this);
     this.responseFacebook = this.responseFacebook.bind(this);
     this.FBlogout = this.FBlogout.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +29,7 @@ class Session extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // debugger
     if (nextProps.loggedIn) {
       this.props.closeModal();
     }
@@ -41,21 +46,40 @@ class Session extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({ user });
+    if (this.state.signup === 'Login') {
+      this.props.login({ user })
+    } else {
+      // debugger
+      this.props.processForm({ user });
+    }
     this.props.updateName(user.username);
   }
 
-  loginGuest(e) {
-    e.preventDefault();
-    const guest = { user: {username: "Albert_Einstein", email: "Albi@yahoo.com", password :"654321"}}
-    this.props.login(guest);
-    this.props.updateName(guest.user.username);
-  }
+  // loginGuest(e) {
+  //   e.preventDefault();
+  //   const guest = { user: {username: "Albert_Einstein", email: "Albi@yahoo.com", password :"654321"}}
+  //   this.props.login(guest);
+  //   this.props.updateName(guest.user.username);
+  // }
 
   // I need to catch errors somehow
 
   responseFacebook(response) {
-    console.log(response);
+    // debugger
+    var username = response.name;
+    var email = response.email;
+    var password = response.id;
+
+    var user = { username : username, email : email, password : password }
+// debugger
+    this.props.processForm({user}).then((resp) => {
+      // debugger
+      if (resp.type === "RECEIVE_ERRORS") {
+        this.props.login({ user })
+      }
+      this.props.updateName(user.username);
+    });
+
   }
 
   FBlogout() {
@@ -75,8 +99,29 @@ class Session extends React.Component {
     });
   }
 
+  handleLogin() {
+    if (this.state.signup === "Login") {
+      this.setState({ signup : "Sign Up" });
+      this.setState({ login : "Login" });
+      this.setState({ loginText : "If you already have an account"})
+    } else {
+      this.setState({ signup : "Login" });
+      this.setState({ loginText : "Don't have an account? Please, "})
+      this.setState({ login : "Sign Up" });
+    }
+  }
+
   render() {
     // debugger
+    const auth = () => {
+      return(
+        <div>
+          <div className="change-login-signup">{this.state.loginText} <button className="button-change-login-signup" onClick={this.handleLogin}>{this.state.login}</button></div>
+        <div><Button id='auth-button' id='buttonSubmit' onClick={this.handleSubmit} color='success'>{this.state.signup}</Button></div>
+      </div>
+      );
+    }
+
     var mykey = facebook.api_key;
     return(
       <Form>
@@ -95,17 +140,23 @@ class Session extends React.Component {
         <FormGroup row>
           <Label sm={2}>Password</Label>
           <Col sm={10}>
-            <Input value={this.state.password} onChange={this.update('password')} name="password" id="password-session" placeholder="2dfnkTR92c" />
+            <Input type="password" value={this.state.password} onChange={this.update('password')} name="password" id="password-session" placeholder="2dfnkTR92c" />
           </Col>
         </FormGroup>
-        <button onClick={this.FBlogout}>LOGOUT FB</button>
-        <FacebookLogin
-          appId={mykey}
-          autoLoad={true}
-          fields="name,email,picture"
-          onClick={this.componentClicked}
-          callback={this.responseFacebook} />
-        <Button id='buttonSubmit' onClick={this.handleSubmit} color='success'>Submit</Button>
+        <div className="auth-buttons">
+          <div>
+            <FacebookLogin
+            appId={mykey}
+            autoLoad={true}
+            id='auth-button'
+            fields="name,email,picture"
+            onClick={this.componentClicked}
+            callback={this.responseFacebook} />
+          </div>
+          <div>
+            { auth() }
+          </div>
+        </div>
       </Form>
     )
   }

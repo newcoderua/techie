@@ -49,6 +49,8 @@ export default class SearchResultsItem extends React.Component {
             </div>
             <div className="company-name">
               by {this.props.companyName}
+              <div className="container-fluid">
+              </div>
             </div>
           </div>
         </div>

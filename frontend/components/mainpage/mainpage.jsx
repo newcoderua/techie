@@ -71,16 +71,16 @@ class MainPage extends React.Component {
       <div className='main-page'>
         <div className="leftNav">
           <div className="lefty-nav-bar">
-            <div className="icons" id="messages-icon"><FaEnvelopeO /></div>
-            <div id="bell-icon"><TiBell /></div>
-            <div id="settings-icon"><TiCogOutline /></div><br /><br />
-            <div id="gadgets-icon">
-              <Link to='/gadgets'>
+            <div className="icons" id="messages-icon"><div><FaEnvelopeO /></div></div>
+            <div className="icons" id="bell-icon"><div><TiBell /></div></div>
+            <div className="icons" id="settings-icon"><div><TiCogOutline /></div></div><br /><br />
+            <div className="icons" id="gadgets-icon">
+              <div><Link to='/gadgets'>
                 <FaCameraRetro id='svg-gadgets-icon'/>
-              </Link>
+              </Link></div>
               </div>
-            <div id="cart-icon"><TiShoppingCart /></div>
-            <div id="news-icon"><FaNewspaperO /></div>
+            <div className="icons" id="cart-icon"><div><TiShoppingCart /></div></div>
+            <div className="icons" id="news-icon"><div><FaNewspaperO /></div></div>
           </div>
           <div className="righty-nav-bar">
             <Switch>

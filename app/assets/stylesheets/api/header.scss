@@ -7,6 +7,18 @@
   width: 100%;
   position: fixed;
   z-index: 1;
+
+}
+
+#logo-icon {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+
+#id-header-right-side {
+  display: flex;
+  align-items: center;
 }
 
 .header-class {

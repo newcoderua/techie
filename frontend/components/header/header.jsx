@@ -106,13 +106,13 @@ import FaGamepad from 'react-icons/lib/fa/gamepad';
 
       return (
         <div className='header'>
-          <div>
-            <FaGamepad />
-            <NavbarBrand href="/">techie</NavbarBrand>
+          <div id="logo-icon">
+            <div><FaGamepad />
+            <NavbarBrand href="/">techie</NavbarBrand></div>
           </div>
-          <div>
+          <div id="id-header-right-side">
             <div className="header-right-side">
-              <div><FaSearch /></div>
+              <div ><FaSearch /></div>
               <div><SearchInput className="search-input" /></div>
               <div>
                 {loginLogoutButton()}

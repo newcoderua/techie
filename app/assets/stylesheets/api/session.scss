@@ -1,3 +1,28 @@
 // Place all the styles related to the api/session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.auth-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#auth-button {
+
+}
+
+.change-login-signup {
+  font-size: 13px;
+}
+
+.button-change-login-signup{
+  border: 0px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.kep-login-facebook.metro {
+  font-size: 13px;
+}
