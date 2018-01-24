@@ -98,6 +98,8 @@ export default class AddGadget extends React.Component {
                     var title;
                     var price;
                     var feature;
+                    var color;
+                    var size;
 
                     if (self.state.results[id].MediumImage === undefined) {
                       img = self.state.results[id].ImageSets['0'].ImageSet['0'].MediumImage['0'].URL['0'];
@@ -122,6 +124,23 @@ export default class AddGadget extends React.Component {
                     } else {
                       price = self.state.results[id].ItemAttributes['0'].ListPrice['0'].FormattedPrice['0'];
                     }
+
+                    if (self.state.results[id].ItemAttributes['0'].Color === undefined) {
+                      color = 'Unknown';
+                    } else {
+                      color = self.state.results[id].ItemAttributes['0'].Color['0'];
+                    }
+
+                    if (self.state.results[id].ItemAttributes['0'].Size === undefined) {
+                      size = 'Unknown';
+                    } else {
+                      size = self.state.results[id].ItemAttributes['0'].Size['0'];
+                    }
+                    var feature = [];
+                    self.state.results[id].ItemAttributes['0'].Feature.forEach((el) => {
+                      feature.push(el);
+                    })
+                    feature = feature.join('. ');
                     // debugger
                     return(
                       <SearchResultsItem
@@ -130,8 +149,10 @@ export default class AddGadget extends React.Component {
                         img={img}
                         title={title}
                         companyName={brand}
-                        feature={self.state.results[id].ItemAttributes['0'].Feature}
                         price={price}
+                        feature={feature}
+                        color={color}
+                        size={size}
                         />
                     )
                   })}

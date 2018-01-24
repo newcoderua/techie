@@ -18,7 +18,6 @@ class Session extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.loginGuest = this.loginGuest.bind(this);
     this.responseFacebook = this.responseFacebook.bind(this);
     this.FBlogout = this.FBlogout.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -31,6 +30,7 @@ class Session extends React.Component {
   componentWillReceiveProps(nextProps) {
     // debugger
     if (nextProps.loggedIn) {
+      // debugger
       this.props.closeModal();
     }
   }
@@ -49,7 +49,6 @@ class Session extends React.Component {
     if (this.state.signup === 'Login') {
       this.props.login({ user })
     } else {
-      // debugger
       this.props.processForm({ user });
     }
     this.props.updateName(user.username);
@@ -93,17 +92,16 @@ class Session extends React.Component {
     });
 
     FB.logout(function(response) {
-      // user is now logged out
-      // debugger
       console.log(response);
     });
   }
 
-  handleLogin() {
+  handleLogin(e) {
+    e.preventDefault();
     if (this.state.signup === "Login") {
       this.setState({ signup : "Sign Up" });
       this.setState({ login : "Login" });
-      this.setState({ loginText : "If you already have an account"})
+      this.setState({ loginText : "If you already have an account"});
     } else {
       this.setState({ signup : "Login" });
       this.setState({ loginText : "Don't have an account? Please, "})

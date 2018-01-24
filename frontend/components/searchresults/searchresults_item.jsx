@@ -52,6 +52,17 @@ export default class SearchResultsItem extends React.Component {
               <div className="container-fluid">
               </div>
             </div>
+            <div className="main-item-description">
+              <div>
+                <span id="modification">Modification</span><br /><br />
+                <span id="left-modif-keys">Price:</span> <span id="right-modif-keys">{this.props.price}</span><br />
+                <span id="left-modif-keys">Color:</span> <span id="right-modif-keys">{this.props.color}</span><br />
+                <span id="left-modif-keys">Size:</span> <span id="right-modif-keys">{this.props.size}</span>
+              </div>
+              <div id="right-main-item-description">
+                {this.props.feature}
+              </div>
+            </div>
           </div>
         </div>
 

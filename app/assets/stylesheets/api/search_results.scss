@@ -139,3 +139,28 @@ font-size: 12px;
 .container-fluid {
   border: 1px solid black;
 }
+
+#modification {
+  color: #f37f07;
+  font-size: 14px;
+}
+
+#left-modif-keys {
+  color: grey;
+  font-size: 12px;
+}
+
+#right-modif-keys {
+  font-size: 14px;
+}
+
+.main-item-description {
+  display: flex;
+  justify-content: space-between;
+}
+
+#right-main-item-description {
+  width: 65%;
+  white-space: normal;
+  overflow: overlay;
+}
