@@ -5,11 +5,9 @@ import { UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Input,
-  Button,
   Container,
   Row,
-  Col,
+  Collapse,
   Card,
   CardImg,
   CardText,
@@ -17,7 +15,8 @@ import { UncontrolledDropdown,
   CardTitle,
   CardSubtitle,
   InputGroup,
-  InputGroupAddon
+  InputGroupAddon,
+  Col, Button, Form, FormGroup, Label, Input, FormText
   } from 'reactstrap';
 import MdSearch from 'react-icons/lib/md/search';
 import SearchResultsItem from '../searchresults/searchresults_item_container';
@@ -29,9 +28,16 @@ export default class AddGadget extends React.Component {
 
     this.getAmazonGoods = this.getAmazonGoods.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.state = {
       results : [],
-      keywords : ''
+      keywords : '',
+      collapse : false,
+      search : 'Advanced Search',
+      condition: "All",
+      manufacturer: "",
+      title: "",
+
     };
   }
 
@@ -54,9 +60,12 @@ export default class AddGadget extends React.Component {
     });
     var self = this;
     client.itemSearch({
-      searchIndex: 'All',
+      searchIndex: 'Electronics',
       Keywords: self.state.keywords,
-      responseGroup: 'ItemAttributes,Offers,Images'
+      Condition: self.state.condition,
+      Manufacturer: self.state.manufacturer,
+      Title: self.state.title,
+      responseGroup: 'Large'
     }, function(err, results, response) {
       if (err) {
         console.log(err);
@@ -67,6 +76,15 @@ export default class AddGadget extends React.Component {
         })
       }
     });
+  }
+
+  toggle() {
+    // this.setState({ collapse: !this.state.collapse });
+    if (this.state.search === "Advanced Search") {
+      this.setState({ collapse: !this.state.collapse, search : "Hide Advanced Search"})
+    } else {
+      this.setState({ collapse: !this.state.collapse, search : "Advanced Search"})
+    }
   }
 
   render() {
@@ -89,6 +107,54 @@ export default class AddGadget extends React.Component {
                 onClick={this.getAmazonGoods}>🔍</button>
             </InputGroupAddon>
           </InputGroup>
+
+          <div className="hidden-form">
+            <div className="inner-hidden-form">
+              <div className="div-advanced-search">
+                <button id='advanced-search' onClick={this.toggle} style={{ marginBottom: '1rem' }}>{this.state.search}</button>
+              </div>
+              <Collapse isOpen={this.state.collapse}>
+                <Card>
+                  <CardBody>
+                    <Form>
+                      <FormGroup row>
+                        <Label for="exampleTitle" sm={2}>Title</Label>
+                        <Col sm={4}>
+                          <Input type="title" name="title" id="exampleTitle" placeholder="iphone X" />
+                        </Col>
+                        <Label for="exampleManufacturer" sm={2}>Manufacturer</Label>
+                        <Col sm={4}>
+                          <Input type="manufacturer" name="manufacturer" id="manufacturer" placeholder="apple" />
+                        </Col>
+                      </FormGroup>
+                      <FormGroup row>
+                        <Label for="color" sm={2}>Color</Label>
+                        <Col sm={4}>
+                          <Input type="color1" name="color" id="exampleColor" placeholder="silver" />
+                        </Col>
+                        <Label for="size" sm={2}>Size</Label>
+                        <Col sm={4}>
+                          <Input type="size" name="size" id="size" placeholder="128gb" />
+                        </Col>
+                      </FormGroup>
+                      <FormGroup row>
+                        <Label for="exampleSelect" sm={2}>Condition</Label>
+                        <Col sm={10}>
+                          <Input type="select" name="select" id="exampleSelect" >
+                            <option>New</option>
+                            <option>Good</option>
+                            <option>Refurbished</option>
+                            <option>So-so</option>
+                            <option>Bad</option>
+                          </Input>
+                        </Col>
+                      </FormGroup>
+                    </Form>
+                  </CardBody>
+                </Card>
+              </Collapse>
+            </div>
+          </div>
           <div className="search_results">
 
                   { Object.keys(self.state.results).map((el, id) => {
@@ -137,10 +203,13 @@ export default class AddGadget extends React.Component {
                       size = self.state.results[id].ItemAttributes['0'].Size['0'];
                     }
                     var feature = [];
-                    self.state.results[id].ItemAttributes['0'].Feature.forEach((el) => {
-                      feature.push(el);
-                    })
-                    feature = feature.join('. ');
+                    if(self.state.results[id].ItemAttributes['0'].Feature !== undefined){
+                      self.state.results[id].ItemAttributes['0'].Feature.forEach((el) => {
+                        feature.push(el);
+                      })
+                      feature = feature.join('. ');
+                    }
+
                     // debugger
                     return(
                       <SearchResultsItem
@@ -172,6 +241,54 @@ export default class AddGadget extends React.Component {
                 onClick={this.getAmazonGoods}>🔍</button>
             </InputGroupAddon>
           </InputGroup>
+
+          <div className="hidden-form">
+            <div className="inner-hidden-form">
+              <div className='div-advanced-search'>
+                <button id='advanced-search' onClick={this.toggle} style={{ marginBottom: '1rem' }}>{this.state.search}</button>
+              </div>
+              <Collapse isOpen={this.state.collapse}>
+                <Card>
+                  <CardBody>
+                    <Form>
+                      <FormGroup row>
+                        <Label for="exampleTitle" sm={2}>Title</Label>
+                        <Col sm={4}>
+                          <Input type="title" name="title" id="exampleTitle" placeholder="iphone X" />
+                        </Col>
+                        <Label for="exampleManufacturer" sm={2}>Manufacturer</Label>
+                        <Col sm={4}>
+                          <Input type="manufacturer" name="manufacturer" id="manufacturer" placeholder="apple" />
+                        </Col>
+                      </FormGroup>
+                      <FormGroup row>
+                        <Label for="color" sm={2}>Color</Label>
+                        <Col sm={4}>
+                          <Input type="color1" name="color" id="exampleColor" placeholder="silver" />
+                        </Col>
+                        <Label for="size" sm={2}>Size</Label>
+                        <Col sm={4}>
+                          <Input type="size" name="size" id="size" placeholder="128gb" />
+                        </Col>
+                      </FormGroup>
+                      <FormGroup row>
+                        <Label for="exampleSelect" sm={2}>Condition</Label>
+                        <Col sm={10}>
+                          <Input type="select" name="select" id="exampleSelect" >
+                            <option>New</option>
+                            <option>Good</option>
+                            <option>Refurbished</option>
+                            <option>So-so</option>
+                            <option>Bad</option>
+                          </Input>
+                        </Col>
+                      </FormGroup>
+                    </Form>
+                  </CardBody>
+                </Card>
+              </Collapse>
+            </div>
+          </div>
         </div>
       )
     }
