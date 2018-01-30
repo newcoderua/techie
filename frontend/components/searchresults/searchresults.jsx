@@ -7,21 +7,9 @@ import SearchResultsItem from './searchresults_item';
 export default class MainPage extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   results : this.props.results,
-    // }
   }
 
   render() {
-    // debugger
-    // if (this.props.results.length === 0) {
-    //   return(
-    //     <div>
-    //
-    //     </div>
-    //   );
-    // } else {
       return(
         <Container>
           <Row>
@@ -36,5 +24,4 @@ export default class MainPage extends React.Component {
         </Container>
       )
     }
-  // }
 }

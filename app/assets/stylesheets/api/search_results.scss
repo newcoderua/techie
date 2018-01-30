@@ -73,6 +73,7 @@
   text-align: center;
   // border: 1px solid #aca7a7;
   margin: 2px;
+
 }
 .major-div-image-class {
   width: 89%;
@@ -194,7 +195,7 @@ font-size: 12px;
 
 .modal-dialog.yo{
   width: 80%;
-  height: 80%;
+  min-height: 80%;
   max-width: 100%;
 }
 
@@ -226,4 +227,8 @@ font-size: 12px;
 .inner-hidden-form {
   width: 96.5%;
   margin-bottom: 10px;
+}
+
+#search-advanced-button {
+  float: right;
 }

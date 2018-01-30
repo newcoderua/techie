@@ -1,0 +1,23 @@
+.modal-content {
+  height: auto;
+}
+
+.left-main-modal-item {
+  width: 40%;
+  height: 100%;
+}
+
+.left-main-modal-item > img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-modal-item {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.right-main-modal-item {
+  width: 60%;
+  margin-left: 5px;
+}

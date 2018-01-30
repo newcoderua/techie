@@ -39,13 +39,25 @@ export default class SearchResultsItem extends React.Component {
           <div className="search-nav-icons">
             <button onClick={this.toggle}>
               <MdInfoOutline />
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className='yo'>
-                  <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+                <Modal isOpen={this.state.modal} height="auto" toggle={this.toggle} className='yo'>
+                  <ModalHeader toggle={this.toggle}>{this.props.title}</ModalHeader>
                   <ModalBody>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <div className="main-modal-item">
+                      <div className="left-main-modal-item">
+                        <img src={this.props.largeImage} />
+                      </div>
+                      <div className="right-main-modal-item">
+                        <b>Company Name:</b>  {this.props.companyName}<br />
+                      <b>Color:</b>  {this.props.color} <br />
+                    <b>Size:</b>  {this.props.size} <br /><br />
+
+                  <b><u>Features: </u></b>
+                        {this.props.feature}
+                      </div>
+                    </div>
                   </ModalBody>
                   <ModalFooter>
-                    <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+                    <Button color="primary" onClick={this.toggle}>Add Gadget</Button>{' '}
                     <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                   </ModalFooter>
                 </Modal>
