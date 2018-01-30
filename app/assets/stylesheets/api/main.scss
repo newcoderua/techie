@@ -23,9 +23,16 @@
 
 .rightNav {
   float: right;
-  display: none;
+  // display: none;
   width: 75%;
+  padding: 3px 3px 3px 13px;
+  // margin-left: 10px;
 }
+
+.search-input-elems {
+  display: none;
+}
+
 #buttonSubmit {
   float: right;
 }

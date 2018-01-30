@@ -162,7 +162,7 @@ export default class AddGadget extends React.Component {
     if (this.state.results.length !== 0) {
       var self = this;
       return(
-        <div className="search-input-elems">
+        <div className="search-input-elems" id="search-input-elems">
           <InputGroup id="place-for-tooltip">
             <input
               id="input-for-search"
@@ -324,7 +324,7 @@ export default class AddGadget extends React.Component {
       )
     } else {
       return(
-        <div className="search-input-elems">
+        <div className="search-input-elems" id="search-input-elems">
           <InputGroup id="place-for-tooltip">
             <input id="input-for-search" placeholder="ex. iphone 6s gold" onChange={this.handleChangeInput} />
               <Tooltip placement="auto-start" isOpen={this.state.tooltipOpen} target="place-for-tooltip" toggle={this.toggleTooltip}>

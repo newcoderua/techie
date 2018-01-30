@@ -18,6 +18,7 @@ import { Route,
 // import createHistory from 'history/createBrowserHistory';
 import { Provider } from 'react-redux';
 import AddGadget from '../mygadgets/add_gadget_container';
+import GIFs from '../gifs/gifs';
 
 // const history = createHistory();
 
@@ -31,7 +32,7 @@ class MainPage extends React.Component {
       searchResults : false,
       results : [],
       isOpen : false,
-      activeTab : '4'
+      currentUser : this.props.currentUser
      };
   }
 
@@ -65,7 +66,18 @@ class MainPage extends React.Component {
   }
 
   render() {
-    // debugger
+    const addGadget = (user) => {
+      if (user) {
+        return(
+          <AddGadget />
+        )
+      } else {
+        return(
+          <GIFs />
+        )
+      }
+    }
+
     return (
       <Router history={this.props.history}>
       <div className='main-page'>
@@ -89,7 +101,7 @@ class MainPage extends React.Component {
           </div>
         </div>
         <div className="rightNav" id="rightNavId">
-          <AddGadget />
+          {addGadget(this.props.currentUser)}
         </div>
       </div>
     </Router>
