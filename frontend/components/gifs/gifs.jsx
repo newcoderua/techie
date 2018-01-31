@@ -5,43 +5,52 @@ export default class GIF extends React.Component {
     super(props);
 
     this.state = {
-      hello: "",
+      gifs: [],
     }
   }
 
   componentDidMount() {
-    this.setState({ hello: "World"});
+    $.ajax({ url: "http://api.giphy.com/v1/gifs/search?q=funny&api_key=627abada91c14e1bba8cbb692d5863ef&limit=100",
+             method: "GET",
+             success: (response) => this.setState({ gifs: response.data}),
+           }).then(() => {
+             const rand = () => {
+               var randNum = Math.floor(Math.random() * 100);
+               return this.state.gifs[`${randNum}`].images.downsized_medium.url;
+             }
+             for (var i = 0; i < 20; i++) {
+               $("#column1").append($('<img>',{src: rand(), width: "100%"}))
+               $("#column2").append($('<img>',{id:'theImg',src: rand(), width: "100%"}))
+               $("#column3").append($('<img>',{id:'theImg',src: rand(), width: "100%"}))
+             }
+           })
   }
 
+
+
   render() {
-    debugger
-    return(
-      <div>
-        <div className="header-gifs">
-          To use full functionality of this website, please Login.
-        Meanwhile, enjoy best GIFs of the day
-        </div>
-        <div className="row">
-          <div className="column">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG" width="100%"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG" width="100%"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG" width="100%"/>
-            Hello
+    // debugger
+    if (this.state.gifs.length === 0) {
+      return(<div></div>);
+    } else {
+      return(
+        <div>
+          <div className="header-gifs">
+            To use full functionality of this website, please Login.
+          Meanwhile, enjoy best GIFs of the day
           </div>
-          <div className="column">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG" width="100%"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG" width="100%"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG" width="100%"/>
-            Hello
-          </div>
-          <div className="column">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG" width="100%"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG" width="100%"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/1200px-Salto_del_Angel-Canaima-Venezuela08.JPG" width="100%"/>
-            Hello
+          <div className="row">
+            <div id="column1" className="column">
+            </div>
+            <div id="column2" className="column">
+            </div>
+            <div id="column3" className="column">
+            </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 }
+
+// <img src={rand()} width="100%"/>
