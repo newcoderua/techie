@@ -9,6 +9,10 @@
     margin-left: 0px !important;
 }
 
+.row.form-group {
+  padding-top: 10px;
+}
+
 /* Create three equal columns that sits next to each other */
 .column {
     -ms-flex: 33%; /* IE10 */
@@ -21,6 +25,7 @@
 .column img {
     margin-top: 8px;
     vertical-align: middle;
+    opacity: 0.8;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
@@ -43,7 +48,7 @@
 
 .header-gifs {
   position: fixed;
-  width: 55rem;
+  width: 75%;
   text-align: center;
   overflow: hidden;
   background-color: white;
@@ -52,4 +57,6 @@
   padding-top: 12px;
   color: #4c4c6e;
   font-family: serif;
+  z-index: 2;
+  margin-top: 2px;
 }

@@ -16,8 +16,16 @@ ActiveRecord::Schema.define(version: 20180115183849) do
   enable_extension "plpgsql"
 
   create_table "gadgets", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name"
+    t.integer "price"
+    t.integer "initial_price"
+    t.string "history_prices", default: [], array: true
+    t.string "description"
+    t.string "condition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_gadgets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

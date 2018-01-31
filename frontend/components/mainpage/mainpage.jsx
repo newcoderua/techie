@@ -19,6 +19,7 @@ import { Route,
 import { Provider } from 'react-redux';
 import AddGadget from '../mygadgets/add_gadget_container';
 import GIFs from '../gifs/gifs';
+import AllMyGadgets from '../mygadgets/all_my_gadgets_container'
 
 // const history = createHistory();
 
@@ -101,6 +102,9 @@ class MainPage extends React.Component {
           </div>
         </div>
         <div className="rightNav" id="rightNavId">
+          <div id="all-gadgets" className="all-gadgets">
+            <AllMyGadgets />
+          </div>
           {addGadget(this.props.currentUser)}
         </div>
       </div>

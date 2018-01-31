@@ -10,7 +10,7 @@ export default class GIF extends React.Component {
   }
 
   componentDidMount() {
-    $.ajax({ url: "http://api.giphy.com/v1/gifs/search?q=funny&api_key=627abada91c14e1bba8cbb692d5863ef&limit=100",
+    $.ajax({ url: "http://api.giphy.com/v1/gifs/search?q=technology&api_key=627abada91c14e1bba8cbb692d5863ef&limit=100",
              method: "GET",
              success: (response) => this.setState({ gifs: response.data}),
            }).then(() => {

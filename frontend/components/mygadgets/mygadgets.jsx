@@ -10,8 +10,17 @@ export default class MyGadgets extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
   }
 
+
+  componentDidMount() {
+    // debugger
+    if (this.props.history.location.pathname === '/gadgets') {
+      document.getElementById('all-gadgets').style.display = 'block';
+    }
+  }
+
   clickHandler() {
     document.getElementById('search-input-elems').style.display = 'block';
+    document.getElementById('all-gadgets').style.display = 'none';
     document.getElementById('addnew-button').style.background = '#181838';
     document.getElementById('addnew-button').style.color = '#dfaa08';
 
@@ -31,6 +40,12 @@ export default class MyGadgets extends React.Component {
             Categories
           </span><br/>
           <div className="categories">
+            <div className="all-categories">
+              All
+            </div>
+            <div className='favorites-categories'>
+              Favorites
+            </div>
           </div>
         </div>
       )
