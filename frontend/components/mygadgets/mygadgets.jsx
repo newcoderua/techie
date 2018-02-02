@@ -13,6 +13,7 @@ export default class MyGadgets extends React.Component {
 
   componentDidMount() {
     // debugger
+    this.props.fetchGadgets();
     if (this.props.history.location.pathname === '/gadgets') {
       document.getElementById('all-gadgets').style.display = 'block';
     }

@@ -18,11 +18,15 @@ ActiveRecord::Schema.define(version: 20180115183849) do
   create_table "gadgets", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name"
-    t.integer "price"
-    t.integer "initial_price"
+    t.string "price"
+    t.string "initial_price"
     t.string "history_prices", default: [], array: true
     t.string "description"
-    t.string "condition"
+    t.string "manufacturer"
+    t.string "color"
+    t.string "size"
+    t.string "features", default: [], array: true
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_gadgets_on_user_id"

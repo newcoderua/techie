@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 // import { logout } from '../../actions/session_actions';
-// import { updateFilter } from '../../actions/filter_actions';
+import { fetchGadgets } from '../../actions/gadgets_actions';
 import MyGadgets from './mygadgets';
 
 const mapStateToProps = ({session}, ownProps) => {
@@ -11,7 +11,7 @@ const mapStateToProps = ({session}, ownProps) => {
 }};
 
 const mapDispatchToProps = dispatch => ({
-  // logout: () => dispatch(logout()),
+  fetchGadgets: () => dispatch(fetchGadgets()),
   // updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
 });
 

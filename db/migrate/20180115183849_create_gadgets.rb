@@ -3,11 +3,15 @@ class CreateGadgets < ActiveRecord::Migration[5.1]
     create_table :gadgets do |t|
       t.integer :user_id, null: false, index: true
       t.string :name
-      t.integer :price
-      t.integer :initial_price
+      t.string :price
+      t.string :initial_price
       t.string :history_prices, array: true, default: []
       t.string :description
-      t.string :condition
+      t.string :manufacturer
+      t.string :color
+      t.string :size
+      t.string :features, array: true, default: []
+      t.string :image
 
       t.timestamps
     end

@@ -20,8 +20,25 @@ export default class SearchResultsItem extends React.Component {
     this.state = {
         modal: false
       };
-
     this.toggle = this.toggle.bind(this);
+    this.handleAddGadget = this.handleAddGadget.bind(this);
+  }
+
+  handleAddGadget(e) {
+    // debugger
+    e.preventDefault();
+    var gadget = {
+      name: this.props.title,
+      price: this.props.price,
+      initial_price: 0,
+      history_prices: [],
+      description: this.props.feature,
+      manufacturer: this.props.companyName,
+      color: this.props.color,
+      size: this.props.size,
+      image: this.props.img,
+    }
+    this.props.createGadget(gadget);
   }
 
   toggle() {
@@ -31,8 +48,6 @@ export default class SearchResultsItem extends React.Component {
   }
 
   render() {
-    // e.preventDefault();
-    // debugger
     return(
       <div className="search-result-items">
         <div className="search-result-leftside">
@@ -74,7 +89,7 @@ export default class SearchResultsItem extends React.Component {
             </button>
           </div>
           <div className="search-nav-icons">
-            <button>
+            <button onClick={this.handleAddGadget}>
               <FaPlusCircle id='add-button-green'/>
             </button>
           </div>
@@ -105,7 +120,6 @@ export default class SearchResultsItem extends React.Component {
             </div>
           </div>
         </div>
-
       </div>
     )
   }

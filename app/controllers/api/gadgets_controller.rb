@@ -3,9 +3,10 @@ class Api::GadgetsController < ApplicationController
     gadgets = Gadget.all
     if(current_user)
       gadgets = gadgets.where(user_id: current_user.id)
+      @gadgets = gadgets.reverse
+      return @gadgets
     end
     # debugger
-    @gadgets = gadgets.reverse
   end
 
   def create
@@ -38,6 +39,8 @@ class Api::GadgetsController < ApplicationController
   private
 
   def gadget_params
-    params.require(:gadget).permit(:user_id, :price, :name)
+    params.require(:gadget).permit(:user_id, :name, :price, :description,
+    :initial_price, :history_prices, :manufacturer, :color, :size,
+    :features, :image)
   end
 end
