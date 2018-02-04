@@ -38,6 +38,7 @@ class MainPage extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchGadgets();
     if (this.props.location.pathname === '/gadgets') {
       document.getElementById("gadgets-icon").style.background = "#4c4c6e";
       document.getElementById("svg-gadgets-icon").style.fill = "#dfaa0a";

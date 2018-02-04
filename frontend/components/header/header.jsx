@@ -1,5 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { browserHistory } from 'react-router';
+import { Router, hashHistory } from 'react-router';
+
 import {
   Collapse,
   Navbar,
@@ -22,7 +25,7 @@ import SearchInput from 'react-search-input'
 import FaSearch from 'react-icons/lib/fa/search';
 import FaGamepad from 'react-icons/lib/fa/gamepad';
 
-  export default class Header extends React.Component {
+class Header extends React.Component {
     constructor(props) {
       super(props);
       // debugger
@@ -80,7 +83,8 @@ import FaGamepad from 'react-icons/lib/fa/gamepad';
     }
 
     handleLogout() {
-      this.props.logout();
+      // debugger
+      this.props.logout().then(() => this.props.history.push('/'));
       this.setState({ currentUserButtonName : 'LogIn' })
     }
 
@@ -105,6 +109,7 @@ import FaGamepad from 'react-icons/lib/fa/gamepad';
       }
 
       return (
+        <Router history={this.props.history}>
         <div className='header'>
           <div id="logo-icon">
             <div><FaGamepad />
@@ -125,11 +130,13 @@ import FaGamepad from 'react-icons/lib/fa/gamepad';
               </div>
             </div>
           </div>
-
         </div>
+      </Router>
       );
     }
   }
+
+  export default withRouter(Header);
 
   // <ModalFooter>
   //   <Button color="primary" onClick={this.toggleModal}>Submit</Button>{' '}

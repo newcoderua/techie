@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import { login, logout, signup, clearErrors } from '../../actions/session_actions';
+import { fetchGadgets } from '../../actions/gadgets_actions';
 import Session from './session';
 import { withRouter } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
     formType,
     login: user => dispatch(login(user)),
     clearErrors: () => dispatch(clearErrors()),
+    fetchGadgets: () => dispatch(fetchGadgets())
   };
 };
 

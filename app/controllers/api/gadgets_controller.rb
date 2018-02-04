@@ -7,6 +7,8 @@ class Api::GadgetsController < ApplicationController
       return @gadgets
     end
     # debugger
+    @gadgets = []
+    return @gadgets
   end
 
   def create

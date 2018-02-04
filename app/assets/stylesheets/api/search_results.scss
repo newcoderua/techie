@@ -102,6 +102,15 @@
   background-color: #fafafa;
 }
 
+.search-nav-icons {
+  display: flex;
+  justify-content: center;
+}
+
+#added-item-icon {
+  font-size: 29px;
+}
+
 .search-nav-icons > button{
   font-size: 28px;
   margin: 0px;

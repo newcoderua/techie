@@ -6,7 +6,8 @@ import AllMyGadgets from './all_my_gadgets';
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    gadgets: state.gadgets
   }
 }
 

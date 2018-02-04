@@ -2,16 +2,11 @@ import React from 'react';
 import { Container, Row, Col,
   Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button,
-  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+  Modal, ModalHeader, ModalBody, ModalFooter, Badge } from 'reactstrap';
 import MdInfoOutline from 'react-icons/lib/md/info-outline';
 import FaLineChart from 'react-icons/lib/fa/line-chart';
 import FaCartPlus from 'react-icons/lib/fa/cart-plus';
 import FaPlusCircle from 'react-icons/lib/fa/plus-circle';
-// import Modal from 'react-responsive-modal';
-// import 'react-responsive-modal/lib/react-responsive-modal.css';
-// import Modal from 'react-responsive-modal/lib/css';
-
-
 
 export default class SearchResultsItem extends React.Component {
   constructor(props) {
@@ -26,7 +21,9 @@ export default class SearchResultsItem extends React.Component {
 
   handleAddGadget(e) {
     // debugger
+    e.currentTarget.innerHTML = "<span id='added-item-icon'>✅</span>"
     e.preventDefault();
+
     var gadget = {
       name: this.props.title,
       price: this.props.price,

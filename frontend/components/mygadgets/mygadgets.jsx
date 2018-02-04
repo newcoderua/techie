@@ -24,7 +24,6 @@ export default class MyGadgets extends React.Component {
     document.getElementById('all-gadgets').style.display = 'none';
     document.getElementById('addnew-button').style.background = '#181838';
     document.getElementById('addnew-button').style.color = '#dfaa08';
-
   }
 
   render() {

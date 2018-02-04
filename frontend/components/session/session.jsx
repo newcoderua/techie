@@ -54,25 +54,15 @@ class Session extends React.Component {
     this.props.updateName(user.username);
   }
 
-  // loginGuest(e) {
-  //   e.preventDefault();
-  //   const guest = { user: {username: "Albert_Einstein", email: "Albi@yahoo.com", password :"654321"}}
-  //   this.props.login(guest);
-  //   this.props.updateName(guest.user.username);
-  // }
-
   // I need to catch errors somehow
 
   responseFacebook(response) {
-    // debugger
     var username = response.name;
     var email = response.email;
     var password = response.id;
 
     var user = { username : username, email : email, password : password }
-// debugger
     this.props.processForm({user}).then((resp) => {
-      // debugger
       if (resp.type === "RECEIVE_ERRORS") {
         this.props.login({ user })
       }
